@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seed Audio 1.0: The Complete Model Report</title>
+  <meta name="description" content="A practical technical report on Seed Audio 1.0, unified AI audio generation, prompting workflows, editing capabilities, Seedance integration, access, pricing, and limitations.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Seed Audio 1.0: The Complete Model Report">
+  <meta property="og:description" content="A practical, evidence-aware guide to unified AI audio generation with Seed Audio 1.0.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Seed Audio 1.0: The Complete Model Report">
+  <meta name="twitter:description" content="Download the 17-page technical report on Seed Audio 1.0 workflows, capabilities, and limitations.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b14;
+      --panel: rgba(19, 24, 42, .82);
+      --text: #f5f7ff;
+      --muted: #a9b1ca;
+      --line: rgba(255, 255, 255, .12);
+      --cyan: #70e1ff;
+      --violet: #a58cff;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(112, 225, 255, .15), transparent 30rem),
+        radial-gradient(circle at 82% 18%, rgba(165, 140, 255, .16), transparent 26rem),
+        var(--bg);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { font-weight: 750; letter-spacing: -.02em; text-decoration: none; }
+    .brand span { color: var(--cyan); }
+    .header-link { color: var(--muted); text-underline-offset: 4px; }
+    main { padding-block: clamp(64px, 10vw, 120px) 72px; }
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--cyan);
+      background: rgba(112, 225, 255, .06);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 880px;
+      margin: 24px 0 20px;
+      font-size: clamp(3rem, 8vw, 6.7rem);
+      line-height: .97;
+      letter-spacing: -.065em;
+    }
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(110deg, var(--cyan), var(--violet));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .lede { max-width: 760px; margin: 0; color: var(--muted); font-size: clamp(1.08rem, 2vw, 1.3rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 750;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.35); }
+    .button.primary { color: #080b14; border-color: transparent; background: linear-gradient(110deg, var(--cyan), #b9f3ff); }
+    .meta { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 28px; color: var(--muted); font-size: .92rem; }
+    .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; margin-top: clamp(70px, 11vw, 120px); }
+    .card { padding: clamp(24px, 4vw, 38px); border: 1px solid var(--line); border-radius: 20px; background: var(--panel); backdrop-filter: blur(14px); }
+    .card h2 { margin: 0 0 14px; font-size: 1.45rem; letter-spacing: -.025em; }
+    .card p { margin: 0; color: var(--muted); }
+    ul { display: grid; gap: 13px; margin: 18px 0 0; padding: 0; list-style: none; }
+    li { display: flex; gap: 12px; color: #dfe4f5; }
+    li::before { content: "↗"; color: var(--cyan); font-weight: 800; }
+    .note { margin-top: 20px; }
+    footer { padding-block: 28px 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    @media (max-width: 760px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(3rem, 15vw, 4.6rem); }
+      .button { width: 100%; }
+      .header-link { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="brand" href="https://seedaud.io/" rel="noopener">Seed<span>Audio</span></a>
+    <a class="header-link" href="https://seedaud.io/" rel="noopener">Open seedaud.io ↗</a>
+  </header>
+
+  <main class="wrap">
+    <section aria-labelledby="report-title">
+      <div class="eyebrow">Technical report · 17 pages</div>
+      <h1 id="report-title">Seed Audio 1.0<br><em>The Complete Model Report</em></h1>
+      <p class="lede">An evidence-aware overview of unified AI audio generation—covering dialogue, ambience, sound effects, music, prompting, editing, access, pricing, and audio-first production with Seedance.</p>
+      <div class="actions">
+        <a class="button primary" href="https://seedaud.io/" rel="noopener">Try Seed Audio 1.0</a>
+        <a class="button" href="seed-audio-1-0-complete-model-report.pdf" download>Download the PDF</a>
+      </div>
+      <div class="meta" aria-label="Report metadata">
+        <span>English</span>
+        <span>Technical report</span>
+        <span>SeedAudio / seedaud.io</span>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Report contents">
+      <article class="card">
+        <h2>What the report covers</h2>
+        <ul>
+          <li>TTS, text-to-audio, and text-and-audio-to-audio workflows</li>
+          <li>Scene-level prompting and reference-voice patterns</li>
+          <li>Audio extension, inpainting, stitching, and editing controls</li>
+          <li>Seedance-oriented audio-first video production</li>
+          <li>Public access routes, pricing, specifications, and limitations</li>
+        </ul>
+      </article>
+      <aside class="card">
+        <h2>Built for practical evaluation</h2>
+        <p>The report distinguishes publicly verifiable details from source-level claims where standalone technical documentation remains limited. It is intended for creators, developers, and teams assessing AI-assisted audio production.</p>
+        <div class="note">
+          <h2>Responsible use</h2>
+          <p>Use voice-reference and cloning features only with appropriate permission and in compliance with applicable privacy, identity, copyright, and platform rules.</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Seed Audio 1.0 technical report · Visit <a href="https://seedaud.io/" rel="noopener">seedaud.io</a></div>
+  </footer>
+</body>
+</html>
